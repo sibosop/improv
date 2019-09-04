@@ -1,4 +1,4 @@
 {
-  "inPort" : "nanoKONTROL2",
-  "outPort" : "nanoKONTROL2"
+  "inPort" : "nanoKONTROL2 SLIDER/KNOB",
+  "outPort" : "nanoKONTROL2 CTRL"
 }
