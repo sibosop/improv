@@ -53,7 +53,7 @@ if __name__ == '__main__':
     specFile = args.spec[0]
     print_dbg("using spec: %s"%specFile)
     specs = config.load(specFile)
-    controller = Controller(specs["inPort"],specs["outPort"],specs)
+    controller = Controller(specs["inPort"],specs["outPort"],specs['nano'])
     while True:
       event = controller.getEvent()
       print_dbg("event: %s"%event)
