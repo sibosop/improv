@@ -1,4 +1,5 @@
 {
+  "Comment" : "Definition of a controller with tag names and the controller number range",
 	"nano": {
 		"slider": [0, 7],
 		"pot": [16, 23],
@@ -15,6 +16,6 @@
 		"setMark": [60],
 		"prevMark": [61],
 		"nextMark": [62],
-		"route": [64, 71]
+		"recordSelect": [64, 71]
 	}
 }
