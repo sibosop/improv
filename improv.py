@@ -37,6 +37,7 @@ def service_shutdown(signum, frame):
 
 signal.signal(signal.SIGTERM, service_shutdown)
 signal.signal(signal.SIGINT, service_shutdown)
+controller = None
 if __name__ == '__main__':
   try:
     random.seed()
@@ -51,15 +52,14 @@ if __name__ == '__main__':
     setDebug(args.verbose)
     specFile = args.spec[0]
     print_dbg("using spec: %s"%specFile)
-
     specs = config.load(specFile)
-    
-    controller = Controller(specs["inPort"],specs["outPort"])
+    controller = Controller(specs["inPort"],specs["outPort"],specs)
     while True:
-      pass
+      event = controller.getEvent()
+      print_dbg("event: %s"%event)
   except ServiceExit:
     print("Service exit received")
   except Exception, e:
     print("%s: error %s"%(pname,e))
-    
+  if controller:
     controller.close()

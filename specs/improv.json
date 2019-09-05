@@ -1,4 +1,5 @@
 {
+  "include" : ["nano"],
   "inPort" : "nanoKONTROL2 SLIDER/KNOB",
   "outPort" : "nanoKONTROL2 CTRL"
 }
