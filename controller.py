@@ -42,6 +42,7 @@ class Controller(object):
         rval.event = k
         rval.num = msg.control-min
         rval.value = msg.value
+        break
     return rval
       
     
