@@ -7,11 +7,9 @@ import time
 import argparse
 import datetime
 import signal
-
-
+import traceback
 
 home = os.environ['HOME']
-
 proj = "%s/%s"%(home,"GitProjects")
 mod = "%s/%s"%(proj,"improv")
 specDir = "%s/%s"%(mod,"specs")
@@ -38,6 +36,11 @@ def service_shutdown(signum, frame):
 signal.signal(signal.SIGTERM, service_shutdown)
 signal.signal(signal.SIGINT, service_shutdown)
 controller = None
+
+def slider(e):
+  print_dbg("%s callback num %d value %d"%(e.event,e.num,e.value))
+
+
 if __name__ == '__main__':
   try:
     random.seed()
@@ -54,12 +57,11 @@ if __name__ == '__main__':
     print_dbg("using spec: %s"%specFile)
     specs = config.load(specFile)
     controller = Controller(specs["inPort"],specs["outPort"],specs['nano'])
-    while True:
-      event = controller.getEvent()
-      print_dbg("event: %s"%event)
+    controller.register("slider",slider)
+    controller.run()
   except ServiceExit:
-    print("Service exit received")
+    print("Exiting on interrupt")
   except Exception, e:
-    print("%s: error %s"%(pname,e))
+    traceback.print_exc()
   if controller:
     controller.close()
