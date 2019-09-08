@@ -1,5 +1,6 @@
 {
-  "include" : ["nano"],
+  "include" : ["nano","improvSounds"],
   "inPort" : "nanoKONTROL2 SLIDER/KNOB",
-  "outPort" : "nanoKONTROL2 CTRL"
+  "outPort" : "nanoKONTROL2 CTRL",
+  "waiterType" : "timeWaiter"
 }
