@@ -20,7 +20,7 @@ from specs import Specs
 from utils import print_dbg
 from utils import setDebug
 from soundFile import SoundFile
-from soundPlayer import PlayerThread
+from threadPlayer import ThreadPlayer
 from soundTrack import SoundTrackManager
 defaultSoundDir = "%s/%s"%(home,"/sibosopLocal/music/Music20161008/Clips/schlubFull/")
 
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     SoundFile()
     SoundTrackManager(args.soundDir[0])
     
-    pt = PlayerThread()
+    pt = ThreadPlayer()
     pt.setDaemon(True)
     pt.start()
     while True:

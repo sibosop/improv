@@ -1,5 +1,4 @@
 {
   "include" : ["nano","improvSounds"],
-  "midiBackEnd" : "mido.backends.rtmidi",
-  "waiterType" : "timeWaiter"
+  "midiBackEnd" : "mido.backends.rtmidi"
 }
