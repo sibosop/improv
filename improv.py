@@ -22,8 +22,6 @@ from utils import setDebug
 from soundFile import SoundFile
 from soundPlayer import PlayerThread
 from soundTrack import SoundTrackManager
-from controller import Controller
-
 defaultSoundDir = "%s/%s"%(home,"/sibosopLocal/music/Music20161008/Clips/schlubFull/")
 
 takesDir = ""
@@ -97,7 +95,6 @@ if __name__ == '__main__':
     Specs(args.spec[0])
     SoundFile()
     SoundTrackManager(args.soundDir[0])
-    Controller('nano').register("slider",slider)
     
     pt = PlayerThread()
     pt.setDaemon(True)

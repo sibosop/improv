@@ -1,6 +1,5 @@
 {
   "include" : ["nano","improvSounds"],
-  "inPort" : "nanoKONTROL2 SLIDER/KNOB",
-  "outPort" : "nanoKONTROL2 CTRL",
+  "midiBackEnd" : "mido.backends.rtmidi",
   "waiterType" : "timeWaiter"
 }
