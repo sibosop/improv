@@ -22,6 +22,7 @@ from utils import setDebug
 from soundFile import SoundFile
 from threadPlayer import ThreadPlayer
 from soundTrack import SoundTrackManager
+from midiHandler import MidiHandler
 defaultSoundDir = "%s/%s"%(home,"/sibosopLocal/music/Music20161008/Clips/schlubFull/")
 
 takesDir = ""
@@ -95,7 +96,9 @@ if __name__ == '__main__':
     Specs(args.spec[0])
     SoundFile()
     SoundTrackManager(args.soundDir[0])
-    
+    mh = MidiHandler(['nano'])
+    mh.setDaemon(True)
+    mh.start()
     pt = ThreadPlayer()
     pt.setDaemon(True)
     pt.start()
