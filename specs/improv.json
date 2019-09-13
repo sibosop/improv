@@ -1,4 +1,0 @@
-{
-  "include" : ["nano","improvSounds"],
-  "midiBackEnd" : "mido.backends.rtmidi"
-}

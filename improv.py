@@ -15,7 +15,7 @@ os.environ['DISPLAY']=":0.0"
 home = os.environ['HOME']
 os.chdir(os.path.dirname(sys.argv[0]))
 sys.path.append("sibcommon")
-defaultSpecFile = "%s/%s"%("specs","improv.json")
+defaultSpecFile = "%s/%s"%("speclib","improv.json")
 from specs import Specs
 from utils import print_dbg
 from utils import setDebug
