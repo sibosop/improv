@@ -23,7 +23,7 @@ from soundFile import SoundFile
 from threadPlayer import ThreadPlayer
 from soundTrack import SoundTrackManager
 from midiHandler import MidiHandler
-defaultSoundDir = "%s/%s"%(home,"/sibosopLocal/music/Music20161008/Clips/schlubFull/")
+defaultSoundDir = "%s/%s"%(home,"Users/brian/sibosopLocal/music/Music20161008/Clips/schlubFull/")
 
 takesDir = ""
 
@@ -84,18 +84,24 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--spec', nargs=1, help='specify spec file', default=[defaultSpecFile])
     parser.add_argument('-v','--verbose', action = 'store_true',help='set verbose mode')
     parser.add_argument('-o','--output', action = 'store_true',help='save session to GardenTakes directory')
-    parser.add_argument('-d','--soundDir',nargs=1,help='specify sound directory',default=[defaultSoundDir])
+    parser.add_argument('-d','--soundDir',nargs=1,help='specify sound directory')
     args = parser.parse_args()
     setDebug(args.verbose)
     if args.output:
       makeTakesDir()   
     print "takesDir:",takesDir 
+    
+      
   
 # Singletons
     print_dbg("using spec: %s"%args.spec[0])
     Specs(args.spec[0])
+    soundDir = Specs().s["defaultSoundDir"]
+    if args.soundDir is not None:
+      soundDir = args.soundDir[0]
+      
     SoundFile()
-    SoundTrackManager(args.soundDir[0])
+    SoundTrackManager(soundDir)
     mh = MidiHandler(['nano'])
     mh.setDaemon(True)
     mh.start()
